@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
   std::ifstream file(argv[1], std::ios::binary);
   
   if (!file.is_open()) {
-    std::cerr << "File error: " << strerror(errno) << std::endl;
+        std::cerr << argv[1] << ": No such file or directory "  << std::endl;
     return 1;
   }
 
@@ -17,10 +17,8 @@ int main(int argc, char* argv[]) {
 
   char* buffer = new char[fileSize];
 
-  if (!file.read(buffer, fileSize)) {
-        std::cerr << "file : No such file or directory " << strerror(errno) << std::endl;
-    return 2;
-  }
+
+file.read(buffer, fileSize);
 
   file.close();
 
