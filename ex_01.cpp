@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
   
   if (!file.is_open()) {
         std::cerr << argv[1] << ": No such file or directory "  << std::endl;
-    return 1;
+    return 84;
   }
 
   file.seekg(0, std::ios::end);
