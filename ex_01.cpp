@@ -3,38 +3,23 @@
 #include <string.h>
 
 
+
 int main(int argc, char* argv[]) {
-  std::ifstream file(argv[1], std::ios::binary);
-  
-  if (!file.is_open()) {
-        std::cerr << argv[1] << ": No such file or directory "  << std::endl;
-    return 84;
+std::ifstream ifs;
+ifs.open(argv[1]);
+if(!ifs.good()){
+
+std::cout << "MyCat : " <<  argv[1] << ": No such file or directory" <<  "\n";
+}
+char c = ifs.get();
+
+  while (ifs.good()) {
+    std::cout << c;
+    c = ifs.get();
   }
 
-  file.seekg(0, std::ios::end);
-  std::streampos fileSize = file.tellg();
-  file.seekg(0, std::ios::beg);
-
-  char* buffer = new char[fileSize];
-
-
-file.read(buffer, fileSize);
-
-  file.close();
-
-  std::cout.write(buffer, fileSize);
-
-  delete[] buffer;
-
+  ifs.close();
+  
   return 0;
 }
-
-
-// int main(int argc, char* argv[]) {
-//  
-//   for (int i = 1; i < argc; i++) {
-//     std::cout << "Argument " << i << " : " << argv[i] << "\n";
-//   }
-//   return 0;
-// }
 
