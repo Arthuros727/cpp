@@ -10,6 +10,7 @@ ifs.open(argv[1]);
 if(!ifs.good()){
 
 std::cout << "MyCat : " <<  argv[1] << ": No such file or directory" <<  "\n";
+return 84;
 }
 char c = ifs.get();
 
